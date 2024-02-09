@@ -33,7 +33,7 @@ class WorldTime{
 
         return jsonData; // Return the data
       } else {
-        print('Failed to get time: ${response.statusCode}');
+        print('Failed to get the time: ${response.statusCode}');
         return null; // Return null in case of failure
       }
     } catch (e) {
