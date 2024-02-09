@@ -37,13 +37,13 @@ class _HomeState extends State<Home> {
           mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
             Text(
-              "Your Home Screen Content",
+              " Home Screen ",
               style: TextStyle(color: Colors.grey,fontSize: 2
               ),
             ),
             Text(
               'Location: ${data['location']}',
-              style: TextStyle(fontSize: 44,color: Colors.white),
+              style: TextStyle(fontSize: 45,color: Colors.white),
             ),
             // Text('Flag: ${data['flag']}', style: TextStyle(fontSize: 18)),
             Text(
@@ -63,7 +63,7 @@ class _HomeState extends State<Home> {
              });
               },
               icon: Icon(Icons.edit_location),
-              label: Text("Edit location"),
+              label: Text("Edit location you want  in the world"),
             ),
           ],
         ),
