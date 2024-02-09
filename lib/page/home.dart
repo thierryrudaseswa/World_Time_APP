@@ -16,7 +16,7 @@ class _HomeState extends State<Home> {
     // Check if ModalRoute.of(context).settings.arguments is not null
     final arguments = ModalRoute.of(context)?.settings.arguments;
     if (arguments != null && arguments is Map<String, dynamic>) {
-      data = arguments;
+      data =data.isNotEmpty ? data : arguments;
 
       bgImage = data['isDaytime'] ? 'day.png' : 'night.png';
       print(data);
@@ -51,8 +51,16 @@ class _HomeState extends State<Home> {
               style: TextStyle(fontSize: 44,color: Colors.white),
             ),
             ElevatedButton.icon(
-              onPressed: () {
-                Navigator.pushNamed(context, '/location');
+              onPressed: () async{
+             dynamic  result  = await Navigator.pushNamed(context, '/location');
+             setState(() {
+               data = {
+                 'time' : result['time'],
+               'location' : result['location'],
+               'isDaytime' : result['isDaytime'],
+               'flag' : result['flag']
+               };
+             });
               },
               icon: Icon(Icons.edit_location),
               label: Text("Edit location"),
